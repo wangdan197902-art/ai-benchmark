@@ -84,11 +84,12 @@ jobs:
           fi
 
       - name: Build Pagefind index
+        continue-on-error: true
         run: |
-          # 安装 Pagefind
-          curl -L https://github.com/CloudCannon/pagefind/releases/latest/download/pagefind-x86_64-unknown-linux-musl.tar.gz \
-            -o pagefind.tar.gz
-          tar -xzf pagefind.tar.gz
+          # 安装 Pagefind（失败不阻塞部署，与 deploy-pages.yml 主站做法一致）
+          curl -fSL https://github.com/CloudCannon/pagefind/releases/latest/download/pagefind-x86_64-unknown-linux-musl.tar.gz \
+            -o pagefind.tar.gz || { echo "Pagefind 下载失败，跳过索引构建"; exit 0; }
+          tar -xzf pagefind.tar.gz || { echo "Pagefind 解压失败，跳过索引构建"; exit 0; }
 
           # 为当前语种构建索引（直接对 publish 目录索引，输出 /pagefind/ 子目录）
           ./pagefind --site "publish-${{ matrix.lang }}" \
