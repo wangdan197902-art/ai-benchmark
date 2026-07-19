@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{ partial "breadcrumb.html" . }}
 <h1>{{ .Title }}</h1>
 {{ .Content }}
+{{ partial "related.html" . }}
 {{ end }}

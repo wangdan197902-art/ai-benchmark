@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ partial "seo.html" . }}
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  {{ with .OutputFormats.Get "rss" }}
+  <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}" />
+  {{ end }}
+  {{- /* Search entry link — declares site search endpoint for browsers/crawlers */ -}}
+  {{ with $.Site.Params.enableSiteSearch }}
+  <link rel="search" type="text/html" href="{{ "search/" | relLangURL }}" />
+  {{ end }}
+  {{ partial "json-ld.html" . }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <main class="container main-content">
+    {{ block "main" . }}{{ .Content }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+  {{/* Pagefind 搜索：只在搜索页加载，减少其他页面负担 */}}
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>
