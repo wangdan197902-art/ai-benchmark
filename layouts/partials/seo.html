@@ -35,8 +35,9 @@
 {{- end -}}
 <link rel="alternate" hreflang="x-default" href="{{ .Site.Home.Permalink }}" />
 
-{{- /* Search engine verification meta tags (placeholders read from config.params) */ -}}
-{{- with $.Site.Params.gscVerification }}
+{{- /* Search engine verification meta tags (placeholders read from config.params)
+     注意：参数名与 hugo-{lang}.toml 中的 [params] 段落保持一致，使用 snake_case 风格 */ -}}
+{{- with $.Site.Params.google_site_verification }}
 <meta name="google-site-verification" content="{{ . }}">
 {{- end -}}
 {{- with $.Site.Params.bingVerification }}

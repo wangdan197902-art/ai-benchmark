@@ -8,6 +8,8 @@ enableEmoji = true
 [params]
   description = "AI Model Benchmark Comparison"
   author = "Website Project"
+  # Google Search Console 验证（主入口 bench.ai-term-hub.com）
+  google_site_verification = "Po21SS8ccODMgK6x0_LBsBX0t5qz7bdqRzASwE-ngyo"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
