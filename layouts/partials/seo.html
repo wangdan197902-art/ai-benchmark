@@ -1,0 +1,75 @@
+{{- /* Title and description */ -}}
+<title>{{ block "title" . }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- /* Per-page OG image (model/comparison pages use dedicated paths; default for others) */ -}}
+{{- $og_image := .Site.Params.defaultOGImage -}}
+{{- if and .IsPage (eq .Section "models") -}}
+  {{- $og_image = printf "/images/og/%s.png" (.Params.model_id | default "") -}}
+{{- else if and .IsPage (eq .Section "comparisons") -}}
+  {{- $og_image = printf "/images/og/%s.png" (.Params.comparison_id | default "") -}}
+{{- end -}}
+
+{{- /* Open Graph */ -}}
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $og_image | absURL }}">
+<meta property="og:locale" content="{{ .Site.LanguageCode }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+{{- /* Twitter Card */ -}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:image" content="{{ $og_image | absURL }}">
+
+{{- /* hreflang: all enabled languages + x-default */ -}}
+{{- range .Site.Languages -}}
+{{- if not .Params.disabled -}}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ (printf "/%s/" .Lang) | absURL }}" />
+{{- end -}}
+{{- end -}}
+<link rel="alternate" hreflang="x-default" href="{{ .Site.Home.Permalink }}" />
+
+{{- /* Search engine verification meta tags (placeholders read from config.params) */ -}}
+{{- with $.Site.Params.gscVerification }}
+<meta name="google-site-verification" content="{{ . }}">
+{{- end -}}
+{{- with $.Site.Params.bingVerification }}
+<meta name="msvalidate.01" content="{{ . }}">
+{{- end -}}
+{{- with $.Site.Params.yandexVerification }}
+<meta name="yandex-verification" content="{{ . }}">
+{{- end -}}
+
+{{/* ===== 以下标签由 github-pages-部署器/scripts/添加验证标签.py 追加 ===== */}}
+
+{{/* Ahrefs 站点验证 */}}
+{{ with .Site.Params.ahrefs_site_verification }}
+<meta name="ahrefs-site-verification" content="{{ . }}">
+{{ end }}
+
+{{/* Google Analytics 4 追踪 */}}
+{{ with .Site.Params.google_analytics_id }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ . }}');
+</script>
+{{ end }}
+
+{{/* Google AdSense 自动广告 */}}
+{{ with .Site.Params.adsense_client }}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ . }}" crossorigin="anonymous"></script>
+{{ end }}
+
+{{/* IndexNow API Key 声明 */}}
+{{ with .Site.Params.indexnow_api_key }}
+<link rel="stylesheet" href="/{{ . }}.txt">
+{{ end }}
