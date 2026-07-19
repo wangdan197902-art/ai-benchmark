@@ -1,0 +1,196 @@
+{{- /* ============================================================
+   JSON-LD structured data (T06)
+   Outputs: BreadcrumbList (all pages) + WebSite (home)
+            + Product (model) + Article (comparison) + FAQPage (comparison w/ faqs)
+   Note: build dict then jsonify|safeJS to avoid double-quoted strings in Hugo 0.164+
+   ============================================================ */ -}}
+
+{{- /* ---------- i18n labels for breadcrumbs ---------- */ -}}
+{{- $homeLabel := "Home" -}}
+{{- $modelsLabel := "Models" -}}
+{{- $comparisonsLabel := "Comparisons" -}}
+{{- $benchmarksLabel := "Benchmarks" -}}
+{{- if eq .Site.Language.Lang "zh" -}}
+  {{- $homeLabel = "首页" -}}
+  {{- $modelsLabel = "模型列表" -}}
+  {{- $comparisonsLabel = "对比列表" -}}
+  {{- $benchmarksLabel = "基准列表" -}}
+{{- end -}}
+
+{{- /* ---------- Page-type detection ---------- */ -}}
+{{- $isModelPage := and (eq .Section "models") .Params.model_id -}}
+{{- $isComparisonPage := and (eq .Section "comparisons") .Params.comparison_id -}}
+{{- $hasFaqs := and (eq .Section "comparisons") .Params.faqs -}}
+
+{{- /* ---------- BreadcrumbList (all pages) ---------- */ -}}
+{{- $crumbs := slice -}}
+{{- if .IsHome -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 1 "name" $homeLabel "item" (.Site.Home.Permalink | absLangURL)) -}}
+{{- else if .IsPage -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 1 "name" $homeLabel "item" (.Site.Home.Permalink | absLangURL)) -}}
+  {{- if eq .Section "models" -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" $modelsLabel "item" (printf "/%s/models/" .Site.Language.Lang | absURL)) -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 3 "name" .Title "item" (.Permalink | absLangURL)) -}}
+  {{- else if eq .Section "comparisons" -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" $comparisonsLabel "item" (printf "/%s/comparisons/" .Site.Language.Lang | absURL)) -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 3 "name" .Title "item" (.Permalink | absLangURL)) -}}
+  {{- else if eq .Section "benchmarks" -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" $benchmarksLabel "item" (printf "/%s/benchmarks/" .Site.Language.Lang | absURL)) -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 3 "name" .Title "item" (.Permalink | absLangURL)) -}}
+  {{- else -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" (.Permalink | absLangURL)) -}}
+  {{- end -}}
+{{- else -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 1 "name" $homeLabel "item" (.Site.Home.Permalink | absLangURL)) -}}
+{{- end -}}
+
+{{- if $crumbs -}}
+<script type="application/ld+json">
+{{- dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $crumbs | jsonify | safeJS -}}
+</script>
+{{- end -}}
+
+{{- /* ---------- WebSite (home page only) ---------- */ -}}
+{{- if .IsHome -}}
+<script type="application/ld+json">
+{{- (dict "@context" "https://schema.org"
+          "@type" "WebSite"
+          "name" .Site.Title
+          "url" .Site.BaseURL
+          "description" .Site.Params.description
+          "inLanguage" .Site.LanguageCode
+          "potentialAction" (dict "@type" "SearchAction"
+                                   "target" (dict "@type" "EntryPoint"
+                                                  "urlTemplate" (printf "%ssearch?q={search_term_string}" .Site.BaseURL))
+                                   "query-input" "required name=search_term_string")) | jsonify | safeJS -}}
+</script>
+{{- end -}}
+
+{{- /* ---------- Product (model page) ---------- */ -}}
+{{- if $isModelPage -}}
+{{- $model_id := .Params.model_id -}}
+{{- $model := index .Site.Data.models $model_id -}}
+{{- if not $model }}{{ $model = index .Site.Data.models (replace $model_id "-" "_") }}{{ end -}}
+{{- if $model -}}
+{{- $addl := slice
+     (dict "@type" "PropertyValue" "name" "context_window" "value" $model.context_window)
+     (dict "@type" "PropertyValue" "name" "license" "value" $model.license) -}}
+{{- range $p := $model.performance -}}
+  {{- $addl = $addl | append (dict "@type" "PropertyValue" "name" (printf "benchmark_%s" $p.benchmark_id) "value" $p.score "unitText" $p.score_unit) -}}
+{{- end -}}
+{{- $obj := dict "@context" "https://schema.org"
+                "@type" "Product"
+                "name" $model.name
+                "description" $model.description
+                "brand" (dict "@type" "Brand" "name" $model.vendor)
+                "category" "AI Model"
+                "releaseDate" $model.release_date
+                "url" (.Permalink | absLangURL)
+                "offers" (dict "@type" "Offer"
+                               "priceCurrency" $model.pricing.currency
+                               "description" (printf "Input: $%.2f / Mtok; Output: $%.2f / Mtok" $model.pricing.input_per_mtok $model.pricing.output_per_mtok))
+                "additionalProperty" $addl -}}
+<script type="application/ld+json">
+{{- $obj | jsonify | safeJS -}}
+</script>
+{{- end -}}
+{{- end -}}
+
+{{- /* ---------- Article (comparison page) ---------- */ -}}
+{{- if $isComparisonPage -}}
+{{- $about := slice -}}
+{{- range $id := .Params.models -}}
+  {{- $about = $about | append (dict "@type" "Product" "name" $id) -}}
+{{- end -}}
+{{- $desc := .Description -}}
+{{- if not $desc }}{{ $desc = (.Summary | plainify) }}{{ end -}}
+{{- $obj := dict "@context" "https://schema.org"
+                "@type" "Article"
+                "headline" .Title
+                "description" $desc
+                "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+                "dateModified" ((or .Lastmod .Date).Format "2006-01-02T15:04:05Z07:00")
+                "inLanguage" .Site.LanguageCode
+                "mainEntityOfPage" (dict "@type" "WebPage" "@id" (.Permalink | absLangURL))
+                "author" (dict "@type" "Organization" "name" .Site.Title)
+                "about" $about -}}
+<script type="application/ld+json">
+{{- $obj | jsonify | safeJS -}}
+</script>
+{{- end -}}
+
+{{- /* ---------- FAQPage (comparison page with faqs) ---------- */ -}}
+{{- if $hasFaqs -}}
+{{- $entities := slice -}}
+{{- range $f := .Params.faqs -}}
+  {{- $entities = $entities | append (dict "@type" "Question" "name" $f.question "acceptedAnswer" (dict "@type" "Answer" "text" $f.answer)) -}}
+{{- end -}}
+{{- $obj := dict "@context" "https://schema.org"
+                "@type" "FAQPage"
+                "mainEntity" $entities -}}
+<script type="application/ld+json">
+{{- $obj | jsonify | safeJS -}}
+</script>
+{{- end -}}
+
+{{- /* ---------- Review (comparison page — editorial rating) ---------- */ -}}
+{{- /* Trigger: comparison pages; rating from .Params.review_rating or default "4.5" */ -}}
+{{- if $isComparisonPage -}}
+{{- $ratingValue := .Params.review_rating | default "4.5" -}}
+{{- $obj := dict "@context" "https://schema.org"
+                "@type" "Review"
+                "itemReviewed" (dict "@type" "Product" "name" .Title)
+                "reviewRating" (dict "@type" "Rating" "ratingValue" $ratingValue "bestRating" "5" "worstRating" "1")
+                "author" (dict "@type" "Organization" "name" .Site.Title)
+                "publisher" (dict "@type" "Organization" "name" .Site.Title)
+                "datePublished" ((or .Date .Lastmod).Format "2006-01-02T15:04:05Z07:00")
+                "url" (.Permalink | absLangURL) -}}
+<script type="application/ld+json">
+{{- $obj | jsonify | safeJS -}}
+</script>
+{{- end -}}
+
+{{- /* ---------- HowTo (use-case page with howto_steps frontmatter) ---------- */ -}}
+{{- /* Trigger: any page whose frontmatter contains `howto_steps: [{name, text}, ...]` */ -}}
+{{- if .Params.howto_steps -}}
+{{- $steps := slice -}}
+{{- range $i, $step := .Params.howto_steps -}}
+  {{- $stepName := printf "Step %d" (add $i 1) -}}
+  {{- $stepText := "" -}}
+  {{- with $step.name }}{{ $stepName = . }}{{ end -}}
+  {{- with $step.text }}{{ $stepText = . }}{{ end -}}
+  {{- $steps = $steps | append (dict "@type" "HowToStep" "position" (add $i 1) "name" $stepName "text" $stepText) -}}
+{{- end -}}
+{{- $howtoDesc := .Description -}}
+{{- if not $howtoDesc }}{{ $howtoDesc = (.Summary | plainify) }}{{ end -}}
+{{- $obj := dict "@context" "https://schema.org"
+                "@type" "HowTo"
+                "name" .Title
+                "description" $howtoDesc
+                "step" $steps
+                "inLanguage" .Site.LanguageCode
+                "totalTime" (.Params.howto_total_time | default "PT30M") -}}
+<script type="application/ld+json">
+{{- $obj | jsonify | safeJS -}}
+</script>
+{{- end -}}
+
+{{- /* ---------- VideoObject (placeholder for future video tutorials) ---------- */ -}}
+{{- /* Trigger: any page whose frontmatter contains `video: {content_url, thumbnail_url, ...}` */ -}}
+{{- with .Params.video -}}
+{{- $videoName := $.Title -}}
+{{- $videoDesc := $.Description -}}
+{{- if not $videoDesc }}{{ $videoDesc = ($.Summary | plainify) }}{{ end -}}
+{{- $obj := dict "@context" "https://schema.org"
+                "@type" "VideoObject"
+                "name" $videoName
+                "description" $videoDesc
+                "thumbnailUrl" (.thumbnail_url | default "")
+                "contentUrl" (.content_url | default "")
+                "uploadDate" (.upload_date | default (now.Format "2006-01-02T15:04:05Z07:00"))
+                "duration" (.duration | default "PT5M")
+                "inLanguage" $.Site.LanguageCode -}}
+<script type="application/ld+json">
+{{- $obj | jsonify | safeJS -}}
+</script>
+{{- end -}}
