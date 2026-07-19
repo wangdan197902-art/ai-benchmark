@@ -1,0 +1,41 @@
+# Hugo 构建产物
+public/
+resources/
+.hugo_build.lock
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# 环境变量与密钥（绝对不能提交）
+.env
+.env.local
+*.key
+*.pem
+
+# 本地数据库（位于data/外，避免Hugo解析.db）
+db/
+data/*.db
+data/*.db-journal
+
+# 数据采集快照（位于data/外，避免Hugo解析.jsonl；可选提交历史快照）
+snapshots/
+
+# Mock 与日志
+mock_server/logs/
+*.log
+
+# node_modules（如果未来引入前端工具链）
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
+
+# 临时报告
+reports/*.tmp
