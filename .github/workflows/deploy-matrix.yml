@@ -49,11 +49,25 @@ jobs:
 
       - name: Prepare single-lang publish dir
         run: |
-          # Hugo构建产物在 public-{lang}/{lang}/ 子目录下（因为hugo.toml设置了baseURL=/）
-          # 我们只把当前语种的内容作为根目录推送，避免其他语种目录污染
+          # Hugo 构建产物可能出现在两个位置：
+          # 1. public-{lang}/{lang}/ 子目录（当 defaultContentLanguageInSubdir=true 时）
+          # 2. public-{lang}/ 根目录（当 defaultContentLanguageInSubdir=false 时，Hugo 会为默认
+          #    语种在 /{lang}/ 生成 alias 重定向页面，指向根 URL，形成自指跳转 Bug）
+          # 本步骤检测 /{lang}/ 子目录是否为 alias 重定向，选择正确的源目录复制
           mkdir -p publish-${{ matrix.lang }}
-          if [ -d "public-${{ matrix.lang }}/${{ matrix.lang }}" ]; then
-            cp -r public-${{ matrix.lang }}/${{ matrix.lang }}/* publish-${{ matrix.lang }}/
+          LANG_SUBDIR="public-${{ matrix.lang }}/${{ matrix.lang }}"
+          if [ -d "$LANG_SUBDIR" ] && [ -f "$LANG_SUBDIR/index.html" ] && grep -q 'http-equiv="refresh"' "$LANG_SUBDIR/index.html"; then
+            # 检测到 alias 重定向：真实内容在根目录（defaultContentLanguageInSubdir=false 的默认语种）
+            # 从根目录复制全部内容，然后删除其他语种子目录避免跨语种污染
+            cp -r public-${{ matrix.lang }}/* publish-${{ matrix.lang }}/
+            for other in ar cs da de el en es fi fr hu id it ja ko nl no pl pt ro ru sv th tr vi zh; do
+              if [ "$other" != "${{ matrix.lang }}" ] && [ -d "publish-${{ matrix.lang }}/$other" ]; then
+                rm -rf "publish-${{ matrix.lang }}/$other"
+              fi
+            done
+          elif [ -d "$LANG_SUBDIR" ]; then
+            # 真实内容在 /{lang}/ 子目录（defaultContentLanguageInSubdir=true）
+            cp -r $LANG_SUBDIR/* publish-${{ matrix.lang }}/
             for shared in css js images fonts static assets; do
               if [ -d "public-${{ matrix.lang }}/$shared" ]; then
                 cp -r "public-${{ matrix.lang }}/$shared" "publish-${{ matrix.lang }}/"
@@ -65,6 +79,7 @@ jobs:
               fi
             done
           else
+            # 无 /{lang}/ 子目录，直接从根目录复制
             cp -r public-${{ matrix.lang }}/* publish-${{ matrix.lang }}/
           fi
 
