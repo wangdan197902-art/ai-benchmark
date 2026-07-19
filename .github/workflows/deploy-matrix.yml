@@ -98,6 +98,28 @@ jobs:
           echo "✅ Pagefind 索引构建完成"
           ls "publish-${{ matrix.lang }}/pagefind/" 2>/dev/null | head -5 || echo "⚠️ pagefind 目录未生成"
 
+      - name: Ensure root index.html
+        run: |
+          # 兜底：确保 publish-{lang}/index.html 存在
+          # 当 public-{lang}/{lang}/ 子目录存在但不是 alias 重定向时，
+          # 上面的 elif 分支只复制了子目录内容，漏掉了根目录的 index.html（home page）。
+          # 这会导致 GitHub Pages 默认返回 index.xml（RSS），而不是 HTML 首页。
+          if [ ! -f "publish-${{ matrix.lang }}/index.html" ]; then
+            if [ -f "public-${{ matrix.lang }}/index.html" ]; then
+              cp "public-${{ matrix.lang }}/index.html" "publish-${{ matrix.lang }}/"
+              echo "✓ 从 public-${{ matrix.lang }}/ 复制 index.html 到 publish-${{ matrix.lang }}/"
+            else
+              echo "⚠️ public-${{ matrix.lang }}/index.html 也不存在，可能 Hugo 没有生成 home page"
+            fi
+          fi
+          # 同时复制其他可能缺失的顶层文件
+          for f in sitemap.xml robots.txt; do
+            if [ ! -f "publish-${{ matrix.lang }}/$f" ] && [ -f "public-${{ matrix.lang }}/$f" ]; then
+              cp "public-${{ matrix.lang }}/$f" "publish-${{ matrix.lang }}/"
+              echo "✓ 从 public-${{ matrix.lang }}/ 复制 $f"
+            fi
+          done
+
       - name: Add CNAME and .nojekyll
         run: |
           echo "${{ matrix.lang }}.${{ env.SITE_TYPE }}.${{ env.DOMAIN }}" > publish-${{ matrix.lang }}/CNAME
