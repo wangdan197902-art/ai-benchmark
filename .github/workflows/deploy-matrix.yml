@@ -56,7 +56,7 @@ jobs:
           # 本步骤检测 /{lang}/ 子目录是否为 alias 重定向，选择正确的源目录复制
           mkdir -p publish-${{ matrix.lang }}
           LANG_SUBDIR="public-${{ matrix.lang }}/${{ matrix.lang }}"
-          if [ -d "$LANG_SUBDIR" ] && [ -f "$LANG_SUBDIR/index.html" ] && grep -q 'http-equiv="refresh"' "$LANG_SUBDIR/index.html"; then
+          if [ -d "$LANG_SUBDIR" ] && [ -f "$LANG_SUBDIR/index.html" ] && grep -q 'http-equiv.*refresh' "$LANG_SUBDIR/index.html"; then
             # 检测到 alias 重定向：真实内容在根目录（defaultContentLanguageInSubdir=false 的默认语种）
             # 从根目录复制全部内容，然后删除其他语种子目录避免跨语种污染
             cp -r public-${{ matrix.lang }}/* publish-${{ matrix.lang }}/
