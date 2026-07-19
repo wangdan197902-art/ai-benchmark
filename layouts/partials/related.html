@@ -1,4 +1,5 @@
-{{ $related := .Site.RegularPages.Related . | first 5 }}
+{{/* 相关推荐：取当前 section 的最近5篇页面（避免 .Site.RegularPages.Related 在多语种下性能问题） */}}
+{{ $related := where .Site.RegularPages "Type" .Type | first 5 }}
 {{ with $related }}
 <section class="related-posts" data-pagefind-ignore>
   <h2>相关推荐</h2>

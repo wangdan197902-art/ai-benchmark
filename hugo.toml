@@ -28,3 +28,18 @@ enableEmoji = true
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# 相关内容索引配置（用于 .Site.RegularPages.Related 查询，生成"相关推荐"）
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = false
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "model_id"
+    weight = 60

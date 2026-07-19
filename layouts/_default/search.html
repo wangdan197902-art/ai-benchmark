@@ -10,11 +10,10 @@
        按 lang 属性自动过滤当前语种的结果 */}}
   <div id="search" data-pagefind-ui></div>
 </section>
-{{ end }}
 
-{{ define "scripts" }}
 {{/* Pagefind UI：只在搜索页加载，自动初始化
-     pagefind-ui.js 和 pagefind-ui.css 由 Pagefind 构建时生成在 /pagefind/ 目录 */}}
+     pagefind-ui.js 和 pagefind-ui.css 由 Pagefind 构建时生成在 /pagefind/ 目录
+     采用内联方式加载，不依赖 baseof.html 的 scripts block */}}
 <link href="{{ "pagefind/pagefind-ui.css" | relURL }}" rel="stylesheet">
 <script src="{{ "pagefind/pagefind-ui.js" | relURL }}"></script>
 <script>
