@@ -20,7 +20,7 @@ defaultContentLanguage = "id"
 [languages]
   [languages.id]
     weight = 1
-    title = "AI Terms Dictionary - Bahasa Indonesia"
+    title = "AI Benchmark Hub - Bahasa Indonesia"
 
 # ===== SEO优化参数 =====
 [params]
@@ -28,7 +28,7 @@ defaultContentLanguage = "id"
   currentLanguage = "id"
 
   # 站点描述（按语种翻译）
-  description = "AI Terms Dictionary in Bahasa Indonesia - Comprehensive AI terminology reference"
+  description = "AI Benchmark Hub in Bahasa Indonesia - AI Model Benchmark Comparison"
 
   # 自定义域名
   customDomain = "id.bench.ai-term-hub.com"
