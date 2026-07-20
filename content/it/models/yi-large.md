@@ -1,0 +1,66 @@
+---
+title: "Yi Large: Complete Benchmark Performance Guide"
+description: "In-depth analysis of Yi Large performance on MMLU, HumanEval, GSM8K, MATH, BBH benchmarks, including pricing and use cases."
+date: 2024-05-13
+lastmod: 2024-05-13
+draft: false
+weight: 10
+model_id: "yi-large"
+vendor: "other"
+version: "yi-large"
+tags: ["flagship", "chinese"]
+---
+
+# Yi Large
+
+## Panoramica del modello
+
+01.AI Yi Large 旗舰闭源模型, 32K 上下文, 中英文能力突出, 在 LMSYS 排行榜上接近 GPT-4。
+
+## Specifiche principali
+
+| Fornitore | Versione | Data di rilascio | Finestra di contesto | Modalità di input | Modalità di output | Licenza |
+|------|---------|-------------|----------------|-----------------|------------------|---------|
+| Other | yi-large | 2024-05-13 | 32K | text | text | Proprietary |
+
+## Prestazioni benchmark
+
+| Benchmark | Punteggio | Unità | Note |
+|------|------|------|------|
+| MMLU (Massive Multitask Language Understanding) | 82.8 | % | 5-shot |
+| HumanEval | 72.2 | pass@1 | — |
+| GSM8K (Grade School Math 8K) | 81.3 | % | 0-shot CoT |
+| MATH | 55.9 | % | 0-shot CoT |
+| BBH (BIG-Bench Hard) | 77.1 | % | 3-shot CoT |
+| GPQA | 35.2 | % | 0-shot |
+| IFEval | 73.4 | % | prompt_strict |
+| ARC | 94.8 | % | challenge |
+| MUSR | 59.4 | % | 0-shot |
+| WinoGrande | 84.1 | % | 0-shot |
+
+## Prezzi
+
+| Input | Output | Lettura cache | Scrittura cache |
+|------|--------|-----------|-----------|
+| — | — | — | — |
+
+*per milione di token*
+
+## Punti di forza
+
+- MMLU score 82.8, strong knowledge reasoning.
+
+## Punti deboli
+
+- 闭源专有模型，不支持自托管。
+
+## Casi d'uso
+
+- 代码生成与调试
+- Agent 工作流与工具调用
+
+## Riferimenti
+
+- [Yi Large Documentazione](https://huggingface.co/models)
+- Data di rilascio: 2024-05-13
+- Fornitore: Other

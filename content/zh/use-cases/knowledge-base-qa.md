@@ -1,0 +1,33 @@
+---
+title: "知识库问答：AI 模型选型指南"
+description: "针对 知识库问答 场景，推荐合适的 AI 模型，并给出评估标准与最佳实践。"
+draft: false
+weight: 10
+use_case_id: "knowledge-base-qa"
+tags: ["use-case", "knowledge-base-qa"]
+---
+
+# 知识库问答
+
+## 场景概述
+
+本页聚焦 知识库问答 场景，介绍该场景的核心需求、推荐模型以及评估标准。
+
+## 选型标准
+
+- 上下文窗口 ≥ 32K
+- SOC2/HIPAA/GDPR 合规
+
+## 评估标准
+
+- 上下文窗口 ≥ 32K
+- SOC2/HIPAA/GDPR 合规
+
+## 最佳实践
+
+- 提供系统提示以建立上下文
+- 监控 token 用量与成本
+
+## 推荐模型
+
+参见本场景下的推荐模型列表（路径：`/zh/use-cases/knowledge-base-qa/`）。

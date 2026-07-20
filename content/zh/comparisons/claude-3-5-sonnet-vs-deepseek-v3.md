@@ -1,0 +1,81 @@
+---
+title: "Claude 3.5 Sonnet vs DeepSeek V3：基准对比"
+description: "详细对比 Claude 3.5 Sonnet 与 DeepSeek V3 的基准表现、定价、上下文窗口与合规性。"
+date: 2024-06-20
+lastmod: 2024-06-20
+draft: false
+weight: 10
+comparison_id: "claude-3-5-sonnet-vs-deepseek-v3"
+models: ["claude-3-5-sonnet", "deepseek-v3"]
+benchmarks: ["bbh", "gsm8k", "humaneval", "math", "mmlu"]
+verdict: "See Editor's Take section."
+tags: ["comparison", "anthropic", "deepseek"]
+---
+
+# Claude 3.5 Sonnet 对比 DeepSeek V3
+
+## 模型概述
+
+Claude 3.5 Sonnet 与 DeepSeek V3 均为 AI 模型市场的重要选项。本页对比两者在基准、定价与合规性上的差异。
+
+## 核心规格对比
+
+| 厂商 | 发布日期 | 上下文窗口 | 许可证 |
+|---------|-------------|----------------|---------|
+| Anthropic / Deepseek | 2024-06-20 / 2024-12-26 | 200K / 64K | Proprietary / DeepSeek License |
+
+## 基准测试表现
+
+| 基准 | Claude 3.5 Sonnet | DeepSeek V3 | 胜出 |
+|------|------|------|--------|
+| BBH (BIG-Bench Hard) | 84.5 | 84.9 | Tie |
+| GSM8K (Grade School Math 8K) | 96.4 | 89.3 | A |
+| HumanEval | 92.0 | 82.6 | A |
+| MATH | 71.1 | 61.6 | A |
+| MMLU (Massive Multitask Language Understanding) | 88.7 | 88.5 | Tie |
+
+## 定价对比
+
+| 输入 | 输出 | 缓存读取 | 缓存写入 |
+|------|--------|-----------|-----------|
+| — / — | — / — | — / — | — / — |
+
+*每百万 token — A / B*
+
+## 优势 & 劣势
+
+### Claude 3.5 Sonnet
+
+- ✅ MMLU 得分 88.7，知识推理能力强。
+- ✅ HumanEval 92.0，代码生成能力出色。
+- ✅ GSM8K 96.4，数学推理稳健。
+- ✅ 上下文窗口 200K，支持长文本。
+- ⚠️ 闭源专有模型，不支持自托管。
+
+### DeepSeek V3
+
+- ✅ MMLU 得分 88.5，知识推理能力强。
+- ✅ HumanEval 82.6，代码生成能力出色。
+- ✅ GSM8K 89.3，数学推理稳健。
+- ✅ 采用 MoE 混合专家架构。
+- ⚠️ 闭源专有模型，不支持自托管。
+
+## 编辑点评
+
+Claude 3.5 Sonnet 与 DeepSeek V3 各有侧重。建议根据具体场景（代码、长文本、视觉等）选择，参考上方基准与定价表。
+
+## 常见问题
+
+### 哪个模型在代码任务上更优？
+参考 HumanEval 基准得分表，得分更高者更适合代码任务。
+
+### 哪个模型价格更低？
+参考上方的定价对比表，输入/输出价格更低者更具成本优势。
+
+### 上下文窗口哪个更长？
+参考核心规格对比表，上下文窗口更大的模型适合长文档处理。
+
+## 参考文献
+
+- [Claude 3.5 Sonnet 文档地址](https://docs.anthropic.com/claude/docs)
+- [DeepSeek V3 文档地址](https://api-docs.deepseek.com/)

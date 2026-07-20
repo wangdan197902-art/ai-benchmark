@@ -1,0 +1,23 @@
+---
+title: "Llama 2 70B on GPQA: Score Breakdown"
+description: "Llama 2 70B scores 27.2 on GPQA, ranked #145 of 195."
+draft: false
+weight: 10
+model_id: "llama-2-70b"
+benchmark_id: "gpqa"
+score: 27.2
+rank: 145
+tags: ["score", "llama-2-70b", "gpqa"]
+---
+
+# Llama 2 70B × GPQA
+
+## Phân tích điểm
+
+| Xếp hạng mô hình | Điểm |
+|------------|-------|
+| #145 / 195 | 27.2 |
+
+## Phân tích hiệu suất
+
+Llama 2 70B achieves 27.2 on GPQA.

@@ -1,0 +1,23 @@
+---
+title: "Flan-UL2 on MATH: Score Breakdown"
+description: "Flan-UL2 scores 22.0 on MATH, ranked #173 of 205."
+draft: false
+weight: 10
+model_id: "flan-ul2"
+benchmark_id: "math"
+score: 22.0
+rank: 173
+tags: ["score", "flan-ul2", "math"]
+---
+
+# Flan-UL2 × MATH
+
+## Detalhamento de pontuação
+
+| Ranking de modelos | Pontuação |
+|------------|-------|
+| #173 / 205 | 22.0 |
+
+## Análise de desempenho
+
+Flan-UL2 achieves 22.0 on MATH.

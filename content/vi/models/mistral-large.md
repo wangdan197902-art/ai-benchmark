@@ -1,0 +1,66 @@
+---
+title: "Mistral Large: Complete Benchmark Performance Guide"
+description: "In-depth analysis of Mistral Large performance on MMLU, HumanEval, GSM8K, MATH, BBH benchmarks, including pricing and use cases."
+date: 2024-02-26
+lastmod: 2024-02-26
+draft: false
+weight: 10
+model_id: "mistral-large"
+vendor: "mistral"
+version: "large"
+tags: ["flagship", "eu-residency"]
+---
+
+# Mistral Large
+
+## Tổng quan mô hình
+
+Mistral AI Large 首代旗舰, 32K 上下文, 多语言与推理能力突出, 原生支持函数调用与 JSON 输出。
+
+## Thông số kỹ thuật cốt lõi
+
+| Nhà cung cấp | Phiên bản | Ngày phát hành | Cửa sổ ngữ cảnh | Phương thức đầu vào | Phương thức đầu ra | Giấy phép |
+|------|---------|-------------|----------------|-----------------|------------------|---------|
+| Mistral | large | 2024-02-26 | 32K | text | text | Apache 2.0 |
+
+## Hiệu suất benchmark
+
+| Benchmark | Điểm | Đơn vị | Ghi chú |
+|------|------|------|------|
+| MMLU (Massive Multitask Language Understanding) | 82.0 | % | 5-shot |
+| HumanEval | 73.4 | pass@1 | — |
+| GSM8K (Grade School Math 8K) | 80.9 | % | 0-shot CoT |
+| MATH | 49.3 | % | 0-shot CoT |
+| BBH (BIG-Bench Hard) | 76.7 | % | 3-shot CoT |
+| GPQA | 38.1 | % | 0-shot |
+| IFEval | 75.8 | % | prompt_strict |
+| ARC | 93.3 | % | challenge |
+| MUSR | 52.1 | % | 0-shot |
+| WinoGrande | 83.3 | % | 0-shot |
+
+## Giá
+
+| Đầu vào | Đầu ra | Đọc bộ nhớ đệm | Ghi bộ nhớ đệm |
+|------|--------|-----------|-----------|
+| — | — | — | — |
+
+*mỗi triệu token*
+
+## Điểm mạnh
+
+- MMLU score 82.0, strong knowledge reasoning.
+
+## Điểm yếu
+
+- 闭源专有模型，不支持自托管。
+
+## Trường hợp sử dụng
+
+- 代码生成与调试
+- Agent 工作流与工具调用
+
+## Tham chiếu
+
+- [Mistral Large Tài liệu](https://docs.mistral.ai/)
+- Ngày phát hành: 2024-02-26
+- Nhà cung cấp: Mistral

@@ -1,0 +1,23 @@
+---
+title: "Flan-UL2 on ARC: Score Breakdown"
+description: "Flan-UL2 scores 88.8 on ARC, ranked #113 of 195."
+draft: false
+weight: 10
+model_id: "flan-ul2"
+benchmark_id: "arc"
+score: 88.8
+rank: 113
+tags: ["score", "flan-ul2", "arc"]
+---
+
+# Flan-UL2 × ARC
+
+## Phân tích điểm
+
+| Xếp hạng mô hình | Điểm |
+|------------|-------|
+| #113 / 195 | 88.8 |
+
+## Phân tích hiệu suất
+
+Flan-UL2 achieves 88.8 on ARC.

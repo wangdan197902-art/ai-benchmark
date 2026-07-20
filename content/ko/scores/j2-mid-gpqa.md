@@ -1,0 +1,23 @@
+---
+title: "Jurassic-2 Mid on GPQA: Score Breakdown"
+description: "Jurassic-2 Mid scores 25.7 on GPQA, ranked #156 of 195."
+draft: false
+weight: 10
+model_id: "j2-mid"
+benchmark_id: "gpqa"
+score: 25.7
+rank: 156
+tags: ["score", "j2-mid", "gpqa"]
+---
+
+# Jurassic-2 Mid × GPQA
+
+## 점수 내역
+
+| 모델 순위 | 점수 |
+|------------|-------|
+| #156 / 195 | 25.7 |
+
+## 성능 분석
+
+Jurassic-2 Mid achieves 25.7 on GPQA.

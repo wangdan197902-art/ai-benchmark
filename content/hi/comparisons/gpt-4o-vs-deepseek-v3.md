@@ -1,0 +1,81 @@
+---
+title: "GPT-4o vs DeepSeek V3: Benchmark Comparison"
+description: "Detailed comparison of GPT-4o and DeepSeek V3 covering benchmarks, pricing, context window, and compliance."
+date: 2024-05-13
+lastmod: 2024-05-13
+draft: false
+weight: 10
+comparison_id: "gpt-4o-vs-deepseek-v3"
+models: ["gpt-4o", "deepseek-v3"]
+benchmarks: ["bbh", "gsm8k", "humaneval", "math", "mmlu"]
+verdict: "See Editor's Take section."
+tags: ["comparison", "openai", "deepseek"]
+---
+
+# GPT-4o बनाम DeepSeek V3
+
+## मॉडल अवलोकन
+
+GPT-4o and DeepSeek V3 are both notable options in the AI model market. This page compares their benchmarks, pricing, and compliance.
+
+## मुख्य विशिष्टताएं
+
+| विक्रेता | रिलीज़ तिथि | संदर्भ विंडो | लाइसेंस |
+|---------|-------------|----------------|---------|
+| Openai / Deepseek | 2024-05-13 / 2024-12-26 | 128K / 64K | Proprietary / DeepSeek License |
+
+## बेंचमार्क प्रदर्शन
+
+| बेंचमार्क | GPT-4o | DeepSeek V3 | विजेता |
+|------|------|------|--------|
+| BBH (BIG-Bench Hard) | 83.1 | 84.9 | B |
+| GSM8K (Grade School Math 8K) | 95.8 | 89.3 | A |
+| HumanEval | 90.2 | 82.6 | A |
+| MATH | 76.6 | 61.6 | A |
+| MMLU (Massive Multitask Language Understanding) | 88.7 | 88.5 | Tie |
+
+## मूल्य तुलना
+
+| इनपुट | आउटपुट | कैश पढ़ें | कैश लिखें |
+|------|--------|-----------|-----------|
+| — / — | — / — | — / — | — / — |
+
+*प्रति मिलियन टोकन — A / B*
+
+## ताकत & कमजोरियां
+
+### GPT-4o
+
+- ✅ MMLU score 88.7, strong knowledge reasoning.
+- ✅ HumanEval 90.2, excellent code generation.
+- ✅ GSM8K 95.8, robust math reasoning.
+- ✅ 支持文本、图像、音频多模态输入。
+- ⚠️ 闭源专有模型，不支持自托管。
+
+### DeepSeek V3
+
+- ✅ MMLU score 88.5, strong knowledge reasoning.
+- ✅ HumanEval 82.6, excellent code generation.
+- ✅ GSM8K 89.3, robust math reasoning.
+- ✅ 采用 MoE 混合专家架构。
+- ⚠️ 闭源专有模型，不支持自托管。
+
+## संपादक की राय
+
+GPT-4o and DeepSeek V3 each have their strengths. Choose based on workload (code, long context, vision), referencing the tables above.
+
+## अक्सर पूछे जाने वाले प्रश्न
+
+### Which model is better for coding tasks?
+Refer to the HumanEval benchmark table; the model with a higher score is better suited for coding tasks.
+
+### Which model is cheaper?
+Refer to the pricing comparison table above; the model with lower input/output prices is more cost-effective.
+
+### Which has a longer context window?
+Refer to the key specifications table; the model with a larger context window is better for long documents.
+
+## संदर्भ
+
+- [GPT-4o दस्तावेज़ीकरण](https://platform.openai.com/docs/models/gpt-4o)
+- [DeepSeek V3 दस्तावेज़ीकरण](https://api-docs.deepseek.com/)

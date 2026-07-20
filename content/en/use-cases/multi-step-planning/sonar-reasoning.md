@@ -1,0 +1,47 @@
+---
+title: "Multi-step Planning Recommendation: Sonar Reasoning"
+description: "Why is Sonar Reasoning recommended for Multi-step Planning? Comprehensive evaluation across benchmarks, pricing, and features."
+draft: false
+weight: 10
+use_case_id: "multi-step-planning"
+model_id: "sonar-reasoning"
+recommendation_score: 37
+rank: 8
+tags: ["use-case-model", "multi-step-planning", "sonar-reasoning"]
+---
+
+# Multi-step Planning → Sonar Reasoning
+
+## Use Case Overview
+
+Sonar Reasoning by Other is a recommended option for the Multi-step Planning use case.
+
+## Recommended Models
+
+| Rank | Vendor | Context Window | Score |
+|------|--------|----------------|-------|
+| #8 | Other | 127K | 37/100 |
+
+## Performance Analysis
+
+### Benchmark Performance
+
+| Benchmark | Score |
+|------|------|
+| MMLU | 87.7 |
+| HUMANEVAL | 81.1 |
+| GSM8K | 89.8 |
+| MATH | 50.7 |
+| BBH | 83.4 |
+| GPQA | 50.1 |
+
+## Strengths
+
+- MMLU score 87.7, strong knowledge reasoning.
+- HumanEval 81.1, excellent code generation.
+- GSM8K 89.8, robust math reasoning.
+
+## Requirements
+
+- API key from other
+- Input length within 127K context window

@@ -1,0 +1,83 @@
+---
+title: "GPT-3.5 Turbo vs GPT-4: Benchmark Comparison"
+description: "Detailed comparison of GPT-3.5 Turbo and GPT-4 covering benchmarks, pricing, context window, and compliance."
+date: 2023-03-01
+lastmod: 2023-03-01
+draft: false
+weight: 10
+comparison_id: "gpt-3.5-turbo-vs-gpt-4"
+models: ["gpt-3.5-turbo", "gpt-4"]
+benchmarks: ["arc", "bbh", "gpqa", "gsm8k", "humaneval", "ifeval", "math", "mmlu", "musr", "winogrande"]
+verdict: "See Editor's Take section."
+tags: ["comparison", "openai", "openai"]
+---
+
+# GPT-3.5 Turbo vs GPT-4
+
+## Model Overview
+
+GPT-3.5 Turbo and GPT-4 are both notable options in the AI model market. This page compares their benchmarks, pricing, and compliance.
+
+## Key Specifications
+
+| Vendor | Release Date | Context Window | License |
+|---------|-------------|----------------|---------|
+| Openai / Openai | 2023-03-01 / 2023-03-14 | 16K / 8K | Proprietary / Proprietary |
+
+## Benchmark Performance
+
+| Benchmark | GPT-3.5 Turbo | GPT-4 | Winner |
+|------|------|------|--------|
+| ARC | 86.8 | 94.1 | B |
+| BBH (BIG-Bench Hard) | 48.2 | 80.9 | B |
+| GPQA | 22.4 | 39.2 | B |
+| GSM8K (Grade School Math 8K) | 34.3 | 91.7 | B |
+| HumanEval | 51.3 | 77.6 | B |
+| IFEval | 57.4 | 74.6 | B |
+| MATH | 17.8 | 43.9 | B |
+| MMLU (Massive Multitask Language Understanding) | 61.1 | 85.8 | B |
+| MUSR | 29.2 | 54.6 | B |
+| WinoGrande | 76.7 | 80.3 | B |
+
+## Pricing Comparison
+
+| Input | Output | Cache Read | Cache Write |
+|------|--------|-----------|-----------|
+| — / — | — / — | — / — | — / — |
+
+*per million tokens — A / B*
+
+## Strengths & Weaknesses
+
+### GPT-3.5 Turbo
+
+- ✅ Reliable general-purpose model.
+- ⚠️ Proprietary, not self-hostable.
+- ⚠️ Context window 16K is limited.
+
+### GPT-4
+
+- ✅ MMLU score 85.8, strong knowledge reasoning.
+- ✅ GSM8K 91.7, robust math reasoning.
+- ⚠️ Proprietary, not self-hostable.
+- ⚠️ Context window 8K is limited.
+
+## Editor's Take
+
+GPT-3.5 Turbo and GPT-4 each have their strengths. Choose based on workload (code, long context, vision), referencing the tables above.
+
+## FAQ
+
+### Which model is better for coding tasks?
+Refer to the HumanEval benchmark table; the model with a higher score is better suited for coding tasks.
+
+### Which model is cheaper?
+Refer to the pricing comparison table above; the model with lower input/output prices is more cost-effective.
+
+### Which has a longer context window?
+Refer to the key specifications table; the model with a larger context window is better for long documents.
+
+## References
+
+- [GPT-3.5 Turbo Documentation](https://platform.openai.com/docs/models)
+- [GPT-4 Documentation](https://platform.openai.com/docs/models)

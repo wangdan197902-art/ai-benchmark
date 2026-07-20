@@ -1,0 +1,23 @@
+---
+title: "Gemini 1.5 Pro on MATH: Score Breakdown"
+description: "Gemini 1.5 Pro scores 58.5 on MATH, ranked #20 of 205."
+draft: false
+weight: 10
+model_id: "gemini-1-5-pro"
+benchmark_id: "math"
+score: 58.5
+rank: 20
+tags: ["score", "gemini-1-5-pro", "math"]
+---
+
+# Gemini 1.5 Pro × MATH
+
+## Phân tích điểm
+
+| Xếp hạng mô hình | Điểm |
+|------------|-------|
+| #20 / 205 | 58.5 |
+
+## Phân tích hiệu suất
+
+Gemini 1.5 Pro achieves 58.5 on MATH.

@@ -1,0 +1,48 @@
+---
+title: "Academic Research Recommendation: GPT-4 1106 Preview"
+description: "Why is GPT-4 1106 Preview recommended for Academic Research? Comprehensive evaluation across benchmarks, pricing, and features."
+draft: false
+weight: 10
+use_case_id: "academic-research"
+model_id: "gpt-4-1106-preview"
+recommendation_score: 56
+rank: 8
+tags: ["use-case-model", "academic-research", "gpt-4-1106-preview"]
+---
+
+# Academic Research → GPT-4 1106 Preview
+
+## Anwendungsfallübersicht
+
+GPT-4 1106 Preview by Openai is a recommended option for the Academic Research use case.
+
+## Empfohlene Modelle
+
+| Rang | Anbieter | Kontextfenster | Score |
+|------|--------|----------------|-------|
+| #8 | Openai | 128K | 56/100 |
+
+## Leistungsanalyse
+
+### Benchmark-Leistung
+
+| Benchmark | Ergebnis |
+|------|------|
+| MMLU | 81.8 |
+| HUMANEVAL | 83.7 |
+| GSM8K | 85.4 |
+| MATH | 52.1 |
+| BBH | 80.0 |
+| GPQA | 36.2 |
+
+## Stärken
+
+- MMLU score 81.8, strong knowledge reasoning.
+- HumanEval 83.7, excellent code generation.
+- GSM8K 85.4, robust math reasoning.
+- 上下文窗口 128K，支持长文本。
+
+## Anforderungen
+
+- 需要 openai 的 API 密钥
+- 输入长度须在 128K 上下文窗口内

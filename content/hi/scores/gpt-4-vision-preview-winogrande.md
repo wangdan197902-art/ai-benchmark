@@ -1,0 +1,23 @@
+---
+title: "GPT-4 Vision Preview on WinoGrande: Score Breakdown"
+description: "GPT-4 Vision Preview scores 80.6 on WinoGrande, ranked #60 of 195."
+draft: false
+weight: 10
+model_id: "gpt-4-vision-preview"
+benchmark_id: "winogrande"
+score: 80.6
+rank: 60
+tags: ["score", "gpt-4-vision-preview", "winogrande"]
+---
+
+# GPT-4 Vision Preview × WinoGrande
+
+## स्कोर विवरण
+
+| मॉडल रैंकिंग | स्कोर |
+|------------|-------|
+| #60 / 195 | 80.6 |
+
+## प्रदर्शन विश्लेषण
+
+GPT-4 Vision Preview achieves 80.6 on WinoGrande.

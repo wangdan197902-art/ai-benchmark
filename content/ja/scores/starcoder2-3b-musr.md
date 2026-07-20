@@ -1,0 +1,23 @@
+---
+title: "StarCoder2 3B on MUSR: Score Breakdown"
+description: "StarCoder2 3B scores 38.4 on MUSR, ranked #145 of 195."
+draft: false
+weight: 10
+model_id: "starcoder2-3b"
+benchmark_id: "musr"
+score: 38.4
+rank: 145
+tags: ["score", "starcoder2-3b", "musr"]
+---
+
+# StarCoder2 3B × MUSR
+
+## スコア内訳
+
+| モデルランキング | スコア |
+|------------|-------|
+| #145 / 195 | 38.4 |
+
+## パフォーマンス分析
+
+StarCoder2 3B achieves 38.4 on MUSR.

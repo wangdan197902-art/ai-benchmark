@@ -1,0 +1,68 @@
+---
+title: "Phi-3 Mini: Complete Benchmark Performance Guide"
+description: "In-depth analysis of Phi-3 Mini performance on MMLU, HumanEval, GSM8K, MATH, BBH benchmarks, including pricing and use cases."
+date: 2024-04-22
+lastmod: 2024-04-22
+draft: false
+weight: 10
+model_id: "phi-3-mini"
+vendor: "other"
+version: "phi-3-mini"
+tags: ["open-weights", "self-hostable"]
+---
+
+# Phi-3 Mini
+
+## मॉडल अवलोकन
+
+Microsoft Phi-3 Mini 3.8B 轻量模型, 4K 上下文 (可扩展 128K), 训练数据高质量, 性能超越 Llama 2 7B。
+
+## मुख्य विशिष्टताएं
+
+| विक्रेता | संस्करण | रिलीज़ तिथि | संदर्भ विंडो | इनपुट मोडलिटी | आउटपुट मोडलिटी | लाइसेंस |
+|------|---------|-------------|----------------|-----------------|------------------|---------|
+| Other | phi-3-mini | 2024-04-22 | 4K | text | text | MIT |
+
+## बेंचमार्क प्रदर्शन
+
+| बेंचमार्क | स्कोर | इकाई | टिप्पणियाँ |
+|------|------|------|------|
+| MMLU (Massive Multitask Language Understanding) | 43.6 | % | 5-shot |
+| HumanEval | 26.9 | pass@1 | — |
+| GSM8K (Grade School Math 8K) | 40.9 | % | 0-shot CoT |
+| MATH | 17.9 | % | 0-shot CoT |
+| BBH (BIG-Bench Hard) | 55.9 | % | 3-shot CoT |
+| GPQA | 20.7 | % | 0-shot |
+| IFEval | 54.9 | % | prompt_strict |
+| ARC | 84.4 | % | challenge |
+| MUSR | 33.5 | % | 0-shot |
+| WinoGrande | 67.1 | % | 0-shot |
+
+## मूल्य निर्धारण
+
+| इनपुट | आउटपुट | कैश पढ़ें | कैश लिखें |
+|------|--------|-----------|-----------|
+| — | — | — | — |
+
+*प्रति मिलियन टोकन*
+
+## ताकत
+
+- 可靠的通用模型。
+
+## कमजोरियां
+
+- MMLU 仅 43.6，知识推理偏弱。
+- HumanEval 26.9，代码能力较弱。
+- 闭源专有模型，不支持自托管。
+- 上下文窗口 4K 偏小。
+
+## उपयोग के मामले
+
+- 通用对话与问答
+
+## संदर्भ
+
+- [Phi-3 Mini दस्तावेज़ीकरण](https://huggingface.co/models)
+- रिलीज़ तिथि: 2024-04-22
+- विक्रेता: Other

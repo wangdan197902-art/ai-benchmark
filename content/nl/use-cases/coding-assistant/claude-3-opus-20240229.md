@@ -1,0 +1,47 @@
+---
+title: "Coding Assistant Recommendation: Claude 3 Opus (2024-02-29)"
+description: "Why is Claude 3 Opus (2024-02-29) recommended for Coding Assistant? Comprehensive evaluation across benchmarks, pricing, and features."
+draft: false
+weight: 10
+use_case_id: "coding-assistant"
+model_id: "claude-3-opus-20240229"
+recommendation_score: 57
+rank: 5
+tags: ["use-case-model", "coding-assistant", "claude-3-opus-20240229"]
+---
+
+# Coding Assistant → Claude 3 Opus (2024-02-29)
+
+## Overzicht gebruiksscenario
+
+Claude 3 Opus (2024-02-29) by Anthropic is a recommended option for the Coding Assistant use case.
+
+## Aanbevolen modellen
+
+| Rang | Leverancier | Contextvenster | Score |
+|------|--------|----------------|-------|
+| #5 | Anthropic | 200K | 57/100 |
+
+## Prestatieanalyse
+
+### Benchmarkprestaties
+
+| Benchmark | Score |
+|------|------|
+| MMLU | 85.7 |
+| HUMANEVAL | 79.7 |
+| GSM8K | 82.3 |
+| MATH | 58.2 |
+| BBH | 79.5 |
+| GPQA | 38.6 |
+
+## Sterktes
+
+- MMLU score 85.7, strong knowledge reasoning.
+- 支持文本、图像、音频多模态输入。
+- 上下文窗口 200K，支持长文本。
+
+## Vereisten
+
+- 需要 anthropic 的 API 密钥
+- 输入长度须在 200K 上下文窗口内

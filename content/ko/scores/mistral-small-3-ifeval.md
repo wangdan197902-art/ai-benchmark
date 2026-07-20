@@ -1,0 +1,23 @@
+---
+title: "Mistral Small 3 on IFEval: Score Breakdown"
+description: "Mistral Small 3 scores 76.9 on IFEval, ranked #29 of 195."
+draft: false
+weight: 10
+model_id: "mistral-small-3"
+benchmark_id: "ifeval"
+score: 76.9
+rank: 29
+tags: ["score", "mistral-small-3", "ifeval"]
+---
+
+# Mistral Small 3 × IFEval
+
+## 점수 내역
+
+| 모델 순위 | 점수 |
+|------------|-------|
+| #29 / 195 | 76.9 |
+
+## 성능 분석
+
+Mistral Small 3 achieves 76.9 on IFEval.

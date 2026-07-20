@@ -1,0 +1,23 @@
+---
+title: "Claude 3 Opus on MMLU (Massive Multitask Language Understanding): Score Breakdown"
+description: "Claude 3 Opus scores 81.2 on MMLU (Massive Multitask Language Understanding), ranked #47 of 205."
+draft: false
+weight: 10
+model_id: "claude-3-opus"
+benchmark_id: "mmlu"
+score: 81.2
+rank: 47
+tags: ["score", "claude-3-opus", "mmlu"]
+---
+
+# Claude 3 Opus × MMLU (Massive Multitask Language Understanding)
+
+## Dettaglio punteggi
+
+| Classifica modelli | Punteggio |
+|------------|-------|
+| #47 / 205 | 81.2 |
+
+## Analisi delle prestazioni
+
+Claude 3 Opus achieves 81.2 on MMLU (Massive Multitask Language Understanding).

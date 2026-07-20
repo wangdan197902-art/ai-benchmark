@@ -1,0 +1,81 @@
+---
+title: "GPT-4o vs Grok-2: Benchmark Comparison"
+description: "Detailed comparison of GPT-4o and Grok-2 covering benchmarks, pricing, context window, and compliance."
+date: 2024-05-13
+lastmod: 2024-05-13
+draft: false
+weight: 10
+comparison_id: "gpt-4o-vs-grok-2"
+models: ["gpt-4o", "grok-2"]
+benchmarks: ["bbh", "gsm8k", "humaneval", "math", "mmlu"]
+verdict: "See Editor's Take section."
+tags: ["comparison", "openai", "xai"]
+---
+
+# GPT-4o đối Grok-2
+
+## Tổng quan mô hình
+
+GPT-4o and Grok-2 are both notable options in the AI model market. This page compares their benchmarks, pricing, and compliance.
+
+## Thông số kỹ thuật chính
+
+| Nhà cung cấp | Ngày phát hành | Cửa sổ ngữ cảnh | Giấy phép |
+|---------|-------------|----------------|---------|
+| Openai / Xai | 2024-05-13 / 2024-08-13 | 128K / 131K | Proprietary / Proprietary |
+
+## Hiệu suất benchmark
+
+| Benchmark | GPT-4o | Grok-2 | Người chiến thắng |
+|------|------|------|--------|
+| BBH (BIG-Bench Hard) | 83.1 | 84.0 | B |
+| GSM8K (Grade School Math 8K) | 95.8 | 93.2 | A |
+| HumanEval | 90.2 | 88.4 | A |
+| MATH | 76.6 | 76.8 | Tie |
+| MMLU (Massive Multitask Language Understanding) | 88.7 | 87.5 | A |
+
+## So sánh giá
+
+| Đầu vào | Đầu ra | Đọc bộ nhớ đệm | Ghi bộ nhớ đệm |
+|------|--------|-----------|-----------|
+| — / — | — / — | — / — | — / — |
+
+*mỗi triệu token — A / B*
+
+## Điểm mạnh & Điểm yếu
+
+### GPT-4o
+
+- ✅ MMLU score 88.7, strong knowledge reasoning.
+- ✅ HumanEval 90.2, excellent code generation.
+- ✅ GSM8K 95.8, robust math reasoning.
+- ✅ 支持文本、图像、音频多模态输入。
+- ⚠️ 闭源专有模型，不支持自托管。
+
+### Grok-2
+
+- ✅ MMLU score 87.5, strong knowledge reasoning.
+- ✅ HumanEval 88.4, excellent code generation.
+- ✅ GSM8K 93.2, robust math reasoning.
+- ✅ 支持文本、图像、音频多模态输入。
+- ⚠️ 闭源专有模型，不支持自托管。
+
+## Ý kiến biên tập
+
+GPT-4o and Grok-2 each have their strengths. Choose based on workload (code, long context, vision), referencing the tables above.
+
+## Câu hỏi thường gặp
+
+### Which model is better for coding tasks?
+Refer to the HumanEval benchmark table; the model with a higher score is better suited for coding tasks.
+
+### Which model is cheaper?
+Refer to the pricing comparison table above; the model with lower input/output prices is more cost-effective.
+
+### Which has a longer context window?
+Refer to the key specifications table; the model with a larger context window is better for long documents.
+
+## Tham chiếu
+
+- [GPT-4o Tài liệu](https://platform.openai.com/docs/models/gpt-4o)
+- [Grok-2 Tài liệu](https://docs.x.ai/)

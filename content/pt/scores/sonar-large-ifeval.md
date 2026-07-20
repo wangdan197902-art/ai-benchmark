@@ -1,0 +1,23 @@
+---
+title: "Sonar Large on IFEval: Score Breakdown"
+description: "Sonar Large scores 74.9 on IFEval, ranked #41 of 195."
+draft: false
+weight: 10
+model_id: "sonar-large"
+benchmark_id: "ifeval"
+score: 74.9
+rank: 41
+tags: ["score", "sonar-large", "ifeval"]
+---
+
+# Sonar Large × IFEval
+
+## Detalhamento de pontuação
+
+| Ranking de modelos | Pontuação |
+|------------|-------|
+| #41 / 195 | 74.9 |
+
+## Análise de desempenho
+
+Sonar Large achieves 74.9 on IFEval.

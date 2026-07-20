@@ -1,0 +1,23 @@
+---
+title: "StarCoder2 7B on WinoGrande: Score Breakdown"
+description: "StarCoder2 7B scores 73.1 on WinoGrande, ranked #144 of 195."
+draft: false
+weight: 10
+model_id: "starcoder2-7b"
+benchmark_id: "winogrande"
+score: 73.1
+rank: 144
+tags: ["score", "starcoder2-7b", "winogrande"]
+---
+
+# StarCoder2 7B × WinoGrande
+
+## स्कोर विवरण
+
+| मॉडल रैंकिंग | स्कोर |
+|------------|-------|
+| #144 / 195 | 73.1 |
+
+## प्रदर्शन विश्लेषण
+
+StarCoder2 7B achieves 73.1 on WinoGrande.

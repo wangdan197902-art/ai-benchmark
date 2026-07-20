@@ -1,0 +1,23 @@
+---
+title: "Mistral 7B v0.1 on WinoGrande: Score Breakdown"
+description: "Mistral 7B v0.1 scores 79.6 on WinoGrande, ranked #76 of 195."
+draft: false
+weight: 10
+model_id: "mistral-7b-v0.1"
+benchmark_id: "winogrande"
+score: 79.6
+rank: 76
+tags: ["score", "mistral-7b-v0.1", "winogrande"]
+---
+
+# Mistral 7B v0.1 × WinoGrande
+
+## Dettaglio punteggi
+
+| Classifica modelli | Punteggio |
+|------------|-------|
+| #76 / 195 | 79.6 |
+
+## Analisi delle prestazioni
+
+Mistral 7B v0.1 achieves 79.6 on WinoGrande.

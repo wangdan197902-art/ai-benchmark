@@ -1,0 +1,23 @@
+---
+title: "Flan-T5 XXL on GSM8K (Grade School Math 8K): Score Breakdown"
+description: "Flan-T5 XXL scores 35.2 on GSM8K (Grade School Math 8K), ranked #184 of 205."
+draft: false
+weight: 10
+model_id: "flan-t5-xxl"
+benchmark_id: "gsm8k"
+score: 35.2
+rank: 184
+tags: ["score", "flan-t5-xxl", "gsm8k"]
+---
+
+# Flan-T5 XXL × GSM8K (Grade School Math 8K)
+
+## 점수 내역
+
+| 모델 순위 | 점수 |
+|------------|-------|
+| #184 / 205 | 35.2 |
+
+## 성능 분석
+
+Flan-T5 XXL achieves 35.2 on GSM8K (Grade School Math 8K).
