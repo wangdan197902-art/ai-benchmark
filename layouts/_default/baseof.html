@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Title }} — {{ .Site.Title }}</title>
-    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    <link rel="canonical" href="{{ .Permalink }}">
+    {{/* SEO meta 标签 + Open Graph + Twitter Card + hreflang + 验证标签（统一由 seo.html 提供） */}}
+    {{ partial "seo.html" . }}
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 </head>
 <body>
