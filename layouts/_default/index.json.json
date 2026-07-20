@@ -1,0 +1,27 @@
+{{- /* ============================================================
+   index.json.json — lunr.js search index (per language)
+   Outputs /<lang>/index.json for each enabled language, containing
+   title/url/summary/keywords/content for every regular page in that language.
+   Requires `[outputs] home = ["html","rss","json"]` and
+   `[outputFormats.JSON]` in config.toml to actually emit the file.
+   ============================================================ */ -}}
+{{- $items := slice -}}
+{{- range .Site.RegularPages -}}
+  {{- $summary := .Summary | plainify -}}
+  {{- $keywords := "" -}}
+  {{- with .Params.keywords -}}
+    {{- $keywords = delimit . ", " -}}
+  {{- end -}}
+  {{- $content := .Plain | truncate 500 -}}
+  {{- $items = $items | append (dict
+        "title" .Title
+        "url" .Permalink
+        "summary" $summary
+        "content" $content
+        "keywords" $keywords
+        "lang" .Site.Language.Lang
+        "section" .Section
+        "date" (.Date.Format "2006-01-02")
+   ) -}}
+{{- end -}}
+{{- $items | jsonify -}}

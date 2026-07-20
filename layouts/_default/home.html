@@ -1,0 +1,88 @@
+{{ define "main" }}
+{{- $isZh := eq .Site.Language.Lang "zh" -}}
+
+<section class="hero">
+  <h1 class="hero-title">{{ .Title }}</h1>
+  <p class="hero-sub">{{ .Site.Params.description }}</p>
+  <form class="hero-search" role="search" onsubmit="return false;">
+    <input type="search" placeholder="{{ if $isZh }}搜索模型、对比、基准…{{ else }}Search models, comparisons, benchmarks…{{ end }}" aria-label="{{ if $isZh }}搜索{{ else }}Search{{ end }}" disabled />
+    <button type="submit" disabled>{{ if $isZh }}搜索{{ else }}Search{{ end }}</button>
+  </form>
+  <p class="hero-search-hint small">{{ if $isZh }}搜索功能将在后续版本上线。{{ else }}Search will be enabled in a later release.{{ end }}</p>
+</section>
+
+{{ with .Content }}
+<section class="section home-intro">
+  <div class="prose">
+    {{ . }}
+  </div>
+</section>
+{{ end }}
+
+<section class="section">
+  <header class="section-header">
+    <h2>{{ if $isZh }}模型 Top 10{{ else }}Top 10 Models{{ end }}</h2>
+    <a href="{{ "models/" | relLangURL }}" class="section-link">{{ if $isZh }}查看全部{{ else }}View all{{ end }} →</a>
+  </header>
+  <div class="model-grid">
+    {{- $modelPages := where .Site.RegularPages "Section" "models" -}}
+    {{- range first 10 $modelPages -}}
+    {{- $mid := .Params.model_id -}}
+    {{- $m := index .Site.Data.models $mid -}}
+    {{- if not $m }}{{ $m = index $.Site.Data.models (replace $mid "-" "_") }}{{ end -}}
+    <a href="{{ .RelPermalink }}" class="model-card-link">
+      <h3 class="model-card-title">{{ .Title }}</h3>
+      <p class="vendor">{{ with $m }}{{ .vendor }} · {{ .version }}{{ end }}</p>
+      {{- with $m -}}
+      {{- range first 1 .performance -}}
+      <p class="model-card-score"><span class="badge">{{ .benchmark_id | upper }}</span> {{ .score }} {{ .score_unit }}</p>
+      {{- end -}}
+      {{- end -}}
+      <p class="model-card-price">{{ if $isZh }}输入{{ else }}Input{{ end }} ${{ $m.pricing.input_per_mtok }} / {{ if $isZh }}输出{{ else }}Output{{ end }} ${{ $m.pricing.output_per_mtok }} · Mtok</p>
+    </a>
+    {{- end -}}
+  </div>
+</section>
+
+<section class="section">
+  <header class="section-header">
+    <h2>{{ if $isZh }}最新对比{{ else }}Latest Comparisons{{ end }}</h2>
+    <a href="{{ "comparisons/" | relLangURL }}" class="section-link">{{ if $isZh }}查看全部{{ else }}View all{{ end }} →</a>
+  </header>
+  <ul class="comparison-list">
+    {{- range first 5 (where .Site.RegularPages "Section" "comparisons") -}}
+    <li>
+      <a href="{{ .RelPermalink }}" class="comparison-list-title">{{ .Title }}</a>
+      <p class="comparison-list-meta small">
+        {{- range $i, $id := .Params.models -}}
+        {{- if $i }} vs {{ end -}}
+        {{- $m := index $.Site.Data.models $id -}}
+        {{- with $m }}{{ .name }}{{ else }}{{ $id }}{{ end -}}
+        {{- end -}}
+        · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      </p>
+      {{ with .Params.verdict }}<p class="comparison-list-verdict small">{{ . }}{{ end }}
+    </li>
+    {{- end -}}
+  </ul>
+</section>
+
+<section class="section">
+  <header class="section-header">
+    <h2>{{ if $isZh }}基准测试{{ else }}Benchmarks{{ end }}</h2>
+    <a href="{{ "benchmarks/" | relLangURL }}" class="section-link">{{ if $isZh }}查看全部{{ else }}View all{{ end }} →</a>
+  </header>
+  <div class="benchmark-grid">
+    {{- range $bid := slice "mmlu" "humaneval" "gsm8k" "math" "bbh" -}}
+    {{- $b := index $.Site.Data.benchmarks $bid -}}
+    {{- with $b -}}
+    <a href="{{ printf "benchmarks/%s/" $bid | relLangURL }}" class="benchmark-card-link">
+      <h3 class="benchmark-card-id">{{ $bid | upper }}</h3>
+      <p class="benchmark-card-name small">{{ .name }}</p>
+      <p class="benchmark-card-category"><span class="badge">{{ .category }}</span></p>
+    </a>
+    {{- end -}}
+    {{- end -}}
+  </div>
+</section>
+{{ end }}
