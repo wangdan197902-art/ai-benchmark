@@ -87,7 +87,7 @@ jobs:
         continue-on-error: true
         run: |
           # 安装 Pagefind（使用直接 URL 避免 CloudCannon→Pagefind 仓库迁移重定向）
-          curl -fSL https://github.com/Pagefind/pagefind/releases/download/v1.5.2/pagefind-x86_64-unknown-linux-musl.tar.gz \
+          curl -fSL https://github.com/Pagefind/pagefind/releases/download/v1.5.2/pagefind-v1.5.2-x86_64-unknown-linux-musl.tar.gz \
             -o pagefind.tar.gz || { echo "Pagefind 下载失败，跳过索引构建"; exit 0; }
           tar -xzf pagefind.tar.gz || { echo "Pagefind 解压失败，跳过索引构建"; exit 0; }
           chmod +x pagefind
