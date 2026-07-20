@@ -65,6 +65,12 @@ jobs:
                 rm -rf "publish-${{ matrix.lang }}/$other"
               fi
             done
+            # 当 hugo.toml 有多个 [languages] 配置时（如 en+zh），Hugo 会把所有语种内容
+            # 渲染到 /{lang}/ 子目录（包括默认语种），导致根目录缺少 search/、models/、
+            # benchmarks/ 等页面（/search/ 返回 404，Pagefind 搜索 UI 无法加载）。
+            # 从 /{lang}/ 子目录复制所有内容（排除 alias 重定向的 index.html）到根目录，
+            # 确保 Pagefind 搜索页面和其他内容页面在根目录可访问。
+            find "$LANG_SUBDIR" -mindepth 1 -maxdepth 1 -not -name 'index.html' -exec cp -rf {} "publish-${{ matrix.lang }}/" \;
           elif [ -d "$LANG_SUBDIR" ]; then
             # 真实内容在 /{lang}/ 子目录（defaultContentLanguageInSubdir=true）
             cp -r $LANG_SUBDIR/* publish-${{ matrix.lang }}/
