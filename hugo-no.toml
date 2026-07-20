@@ -2,13 +2,13 @@
 #
 # 使用方式：
 #   1. 由 scripts/创建hugo配置.py 自动填充占位符并生成 hugo-{lang}.toml
-#   2. 占位符：no / Norsk / bench / ai-term-hub.com / https://no.bench.ai-term-hub.com/
+#   2. 占位符：no / Norsk / bench / ai-term-hub.com / https://bench-no.ai-term-hub.com/
 #   3. 与主 hugo.toml 一起使用：hugo --config hugo.toml,hugo-{lang}.toml
 #
 # 此配置会覆盖 hugo.toml 中的对应字段，实现单语种独立构建
 
 # ===== 基础URL（绑定自购三级域名） =====
-baseURL = "https://no.bench.ai-term-hub.com/"
+baseURL = "https://bench-no.ai-term-hub.com/"
 
 # ===== 语言设置 =====
 languageCode = "no"
@@ -31,14 +31,14 @@ defaultContentLanguage = "no"
   description = "AI Benchmark Hub in Norsk - AI Model Benchmark Comparison"
 
   # 自定义域名
-  customDomain = "no.bench.ai-term-hub.com"
+  customDomain = "bench-no.ai-term-hub.com"
 
   # 部署平台信息
   deploymentPlatform = "github-pages"
   repositoryName = "bench-no"
 
   # canonical（指向当前语种子站首页）
-  canonical = "https://no.bench.ai-term-hub.com/"
+  canonical = "https://bench-no.ai-term-hub.com/"
 
   # SEO 验证与追踪参数（由 scripts/添加验证标签.py 同步注入 layouts/seo.html）
   # 这些值会被 Hugo 模板读取并输出对应 meta 标签
@@ -53,31 +53,30 @@ defaultContentLanguage = "no"
   # Hreflang alternates（指向其他语种子站）
   # 用于SEO多语种信号传递
   [params.alternates]
-    ar = "https://ar.bench.ai-term-hub.com/"
-    cs = "https://cs.bench.ai-term-hub.com/"
-    da = "https://da.bench.ai-term-hub.com/"
-    de = "https://de.bench.ai-term-hub.com/"
-    el = "https://el.bench.ai-term-hub.com/"
-    en = "https://en.bench.ai-term-hub.com/"
-    es = "https://es.bench.ai-term-hub.com/"
-    fi = "https://fi.bench.ai-term-hub.com/"
-    fr = "https://fr.bench.ai-term-hub.com/"
-    hu = "https://hu.bench.ai-term-hub.com/"
-    id = "https://id.bench.ai-term-hub.com/"
-    it = "https://it.bench.ai-term-hub.com/"
-    ja = "https://ja.bench.ai-term-hub.com/"
-    ko = "https://ko.bench.ai-term-hub.com/"
-    nl = "https://nl.bench.ai-term-hub.com/"
-    no = "https://no.bench.ai-term-hub.com/"
-    pl = "https://pl.bench.ai-term-hub.com/"
-    pt = "https://pt.bench.ai-term-hub.com/"
-    ro = "https://ro.bench.ai-term-hub.com/"
-    ru = "https://ru.bench.ai-term-hub.com/"
-    sv = "https://sv.bench.ai-term-hub.com/"
-    th = "https://th.bench.ai-term-hub.com/"
-    tr = "https://tr.bench.ai-term-hub.com/"
-    vi = "https://vi.bench.ai-term-hub.com/"
-    zh = "https://zh.bench.ai-term-hub.com/"
+    ar = "https://bench-ar.ai-term-hub.com/"
+    cs = "https://bench-cs.ai-term-hub.com/"
+    da = "https://bench-da.ai-term-hub.com/"
+    de = "https://bench-de.ai-term-hub.com/"
+    el = "https://bench-el.ai-term-hub.com/"
+    en = "https://bench-en.ai-term-hub.com/"
+    es = "https://bench-es.ai-term-hub.com/"
+    fi = "https://bench-fi.ai-term-hub.com/"
+    fr = "https://bench-fr.ai-term-hub.com/"
+    hu = "https://bench-hu.ai-term-hub.com/"
+    id = "https://bench-id.ai-term-hub.com/"
+    it = "https://bench-it.ai-term-hub.com/"
+    ja = "https://bench-ja.ai-term-hub.com/"
+    ko = "https://bench-ko.ai-term-hub.com/"
+    nl = "https://bench-nl.ai-term-hub.com/"
+    no = "https://bench-no.ai-term-hub.com/"
+    pl = "https://bench-pl.ai-term-hub.com/"
+    pt = "https://bench-pt.ai-term-hub.com/"
+    ro = "https://bench-ro.ai-term-hub.com/"
+    ru = "https://bench-ru.ai-term-hub.com/"
+    sv = "https://bench-sv.ai-term-hub.com/"
+    tr = "https://bench-tr.ai-term-hub.com/"
+    vi = "https://bench-vi.ai-term-hub.com/"
+    zh = "https://bench-zh.ai-term-hub.com/"
 
 # ===== Sitemap 配置（单语种独立sitemap） =====
 [sitemap]
