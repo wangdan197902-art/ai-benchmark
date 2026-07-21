@@ -21,6 +21,7 @@ defaultContentLanguage = "hu"
   [languages.hu]
     weight = 1
     title = "AI Benchmark Hub - Magyar"
+    contentDir = "content/hu"
 
 # ===== SEO优化参数 =====
 [params]

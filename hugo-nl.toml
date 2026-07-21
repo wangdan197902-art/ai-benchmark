@@ -21,6 +21,7 @@ defaultContentLanguage = "nl"
   [languages.nl]
     weight = 1
     title = "AI Benchmark Hub - Nederlands"
+    contentDir = "content/nl"
 
 # ===== SEO优化参数 =====
 [params]

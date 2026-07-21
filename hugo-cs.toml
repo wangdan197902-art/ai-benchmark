@@ -21,6 +21,7 @@ defaultContentLanguage = "cs"
   [languages.cs]
     weight = 1
     title = "AI Benchmark Hub - Čeština"
+    contentDir = "content/cs"
 
 # ===== SEO优化参数 =====
 [params]

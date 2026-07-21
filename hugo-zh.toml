@@ -21,6 +21,7 @@ defaultContentLanguage = "zh"
   [languages.zh]
     weight = 1
     title = "AI Benchmark Hub - 中文"
+    contentDir = "content/zh"
 
 # ===== SEO优化参数 =====
 [params]

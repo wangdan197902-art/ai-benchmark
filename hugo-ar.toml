@@ -21,6 +21,7 @@ defaultContentLanguage = "ar"
   [languages.ar]
     weight = 1
     title = "AI Benchmark Hub - العربية"
+    contentDir = "content/ar"
 
 # ===== SEO优化参数 =====
 [params]

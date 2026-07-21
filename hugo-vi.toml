@@ -21,6 +21,7 @@ defaultContentLanguage = "vi"
   [languages.vi]
     weight = 1
     title = "AI Benchmark Hub - Tiếng Việt"
+    contentDir = "content/vi"
 
 # ===== SEO优化参数 =====
 [params]

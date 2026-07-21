@@ -21,6 +21,7 @@ defaultContentLanguage = "fi"
   [languages.fi]
     weight = 1
     title = "AI Benchmark Hub - Suomi"
+    contentDir = "content/fi"
 
 # ===== SEO优化参数 =====
 [params]

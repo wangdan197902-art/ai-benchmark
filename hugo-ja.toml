@@ -21,6 +21,7 @@ defaultContentLanguage = "ja"
   [languages.ja]
     weight = 1
     title = "AI Benchmark Hub - 日本語"
+    contentDir = "content/ja"
 
 # ===== SEO优化参数 =====
 [params]

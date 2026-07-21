@@ -21,6 +21,7 @@ defaultContentLanguage = "no"
   [languages.no]
     weight = 1
     title = "AI Benchmark Hub - Norsk"
+    contentDir = "content/no"
 
 # ===== SEO优化参数 =====
 [params]

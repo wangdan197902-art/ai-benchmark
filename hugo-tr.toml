@@ -21,6 +21,7 @@ defaultContentLanguage = "tr"
   [languages.tr]
     weight = 1
     title = "AI Benchmark Hub - Türkçe"
+    contentDir = "content/tr"
 
 # ===== SEO优化参数 =====
 [params]

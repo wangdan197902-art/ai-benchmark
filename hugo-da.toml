@@ -21,6 +21,7 @@ defaultContentLanguage = "da"
   [languages.da]
     weight = 1
     title = "AI Benchmark Hub - Dansk"
+    contentDir = "content/da"
 
 # ===== SEO优化参数 =====
 [params]

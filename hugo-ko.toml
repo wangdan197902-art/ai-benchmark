@@ -21,6 +21,7 @@ defaultContentLanguage = "ko"
   [languages.ko]
     weight = 1
     title = "AI Benchmark Hub - 한국어"
+    contentDir = "content/ko"
 
 # ===== SEO优化参数 =====
 [params]

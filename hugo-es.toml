@@ -21,6 +21,7 @@ defaultContentLanguage = "es"
   [languages.es]
     weight = 1
     title = "AI Benchmark Hub - Español"
+    contentDir = "content/es"
 
 # ===== SEO优化参数 =====
 [params]

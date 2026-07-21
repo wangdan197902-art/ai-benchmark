@@ -21,6 +21,7 @@ defaultContentLanguage = "id"
   [languages.id]
     weight = 1
     title = "AI Benchmark Hub - Bahasa Indonesia"
+    contentDir = "content/id"
 
 # ===== SEO优化参数 =====
 [params]

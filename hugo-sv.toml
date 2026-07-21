@@ -21,6 +21,7 @@ defaultContentLanguage = "sv"
   [languages.sv]
     weight = 1
     title = "AI Benchmark Hub - Svenska"
+    contentDir = "content/sv"
 
 # ===== SEO优化参数 =====
 [params]
