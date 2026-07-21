@@ -1,5 +1,5 @@
 ---
-title: "AI Benchmark Hub — AI Model Comparison"
+title: "AI Benchmark Hub — Jämförelse av AI-modeller"
 description: "Oberoende och transparent AI-modelljämförelsebibliotek. Jämför GPT-4o, Claude, Gemini, Llama och fler."
 date: 2025-01-01
 draft: false
