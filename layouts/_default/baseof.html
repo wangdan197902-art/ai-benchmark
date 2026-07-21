@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{/* SEO meta 标签 + Open Graph + Twitter Card + hreflang + 验证标签（统一由 seo.html 提供） */}}
     {{ partial "seo.html" . }}
+    {{/* JSON-LD 结构化数据（BreadcrumbList + WebSite + Product + Article + FAQPage 等） */}}
+    {{ partial "json-ld.html" . }}
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 </head>
 <body>
