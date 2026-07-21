@@ -1,8 +1,10 @@
 {{- /* Title and description */ -}}
+{{- $canonical := .Permalink -}}
+{{- if .IsHome -}}{{- with .Site.Params.canonical -}}{{- $canonical = . -}}{{- end -}}{{- end -}}
 <title>{{ block "title" . }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="author" content="{{ .Site.Params.author }}">
-<link rel="canonical" href="{{ .Permalink }}">
+<link rel="canonical" href="{{ $canonical }}">
 
 {{- /* Per-page OG image (model/comparison pages use dedicated paths; default for others) */ -}}
 {{- $og_image := .Site.Params.defaultOGImage -}}
