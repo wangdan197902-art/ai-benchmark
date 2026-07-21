@@ -12,12 +12,12 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - name: Setup Hugo
@@ -31,9 +31,8 @@ jobs:
           node-version: '20'
       - name: Build with Hugo
         run: hugo --minify --baseURL "https://bench.ai-term-hub.com/"
-      - name: Build Pagefind Search Index
-        run: npx pagefind --site public/
-        continue-on-error: true
+      - name: Skip Pagefind (disabled to avoid build timeout on large site)
+        run: echo "Pagefind indexing disabled for bench main domain (54702 files × 25 langs causes timeout). Will be re-enabled after build optimization."
       - name: Add .nojekyll
         run: touch public/.nojekyll
       - name: Ensure index.html
