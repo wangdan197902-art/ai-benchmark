@@ -10,6 +10,11 @@ enableEmoji = true
   author = "Website Project"
   # Google Search Console 验证（主入口 bench.ai-term-hub.com）
   google_site_verification = "Po21SS8ccODMgK6x0_LBsBX0t5qz7bdqRzASwE-ngyo"
+  # SEO 验证与追踪参数（与 hugo-{lang}.toml 保持一致，确保主域名也有这些标签）
+  ahrefs_site_verification = "ad7fa89d439de59a24f2c0539f078231d409b57876cd4088b2e41eafe03df321"
+  google_analytics_id = "G-15279420781"
+  adsense_client = "ca-pub-XXXXXXXXXXXXXXXX"
+  indexnow_api_key = "a0f6b5032dd63cf84271ae3ab4fcaf86"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
