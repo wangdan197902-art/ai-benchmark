@@ -20,6 +20,11 @@ enableEmoji = true
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML"]
 
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
 [taxonomies]
   category = "categories"
   tag = "tags"
